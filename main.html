@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeCapsule</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <div id="layout">
+      <!-- nav -->
+      <nav id="nav">
+        <p>TimeCapsule</p>
+
+        <div id="search-element">
+          <select name="search-option" id = "search-option">
+            <option value="title">제목</option>
+            <option value="writer">작성자</option>
+          </select>
+
+          <input id="calendar" type="date" />
+          <input id="search-input" placeholder="검색어를 입력하세요" />
+          <button id="search">검색</button>
+        </div>
+      </nav>
+
+      <!-- main -->
+      <main id="main">
+        <p>No List</p>
+      </main>
+
+      <!-- footer -->
+      <footer id="footer">
+        <button id="add-write">글 작성</button>
+      </footer>
+    </div>
+  </body>
+</html>
