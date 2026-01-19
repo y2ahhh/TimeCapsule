@@ -32,7 +32,10 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+<<<<<<< HEAD
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+=======
+>>>>>>> fb85a4a (프로젝트 시작)
 }
 
 tasks.named('test') {
