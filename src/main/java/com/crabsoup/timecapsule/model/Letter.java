@@ -28,7 +28,9 @@ public class Letter {
 
     private LocalDate endDate;
 
-    private boolean lock;
+    private boolean locked;
+
+    private Integer pw;
     
     
 }
