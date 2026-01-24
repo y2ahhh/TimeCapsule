@@ -1,5 +1,6 @@
 package com.crabsoup.timecapsule.service;
 
-public class LetterService {
+public interface LetterService {
+
     
 }
