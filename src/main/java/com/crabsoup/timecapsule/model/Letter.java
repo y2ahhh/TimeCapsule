@@ -31,6 +31,5 @@ public class Letter {
     private boolean locked;
 
     private Integer pw;
-    
-    
+       
 }
