@@ -13,9 +13,9 @@
         <p>TimeCapsule</p>
 
         <div id="search-element">
-          <select name="search-option" id="search-option">
-            <option value="title">제목</option>
-            <option value="writer">작성자</option>
+          <select id="search-option">
+            <option>제목</option>
+            <option>작성자</option>
           </select>
 
           <input id="calendar" type="date" />
@@ -26,7 +26,21 @@
 
       <!-- main -->
       <main id="main">
-        <p>No List</p>
+        <!-- 고정 -->
+        <div class="item-head">
+          <div class ="title">
+            <p>제목</p>
+          </div>
+          <div class ="name">
+            <p>작성자</p>
+          </div>
+          <div class ="lock">
+            <p>잠금</p>
+          </div>
+        </div>
+
+        <!-- 값 -->
+        <div id = "content"></div>
       </main>
 
       <!-- footer -->
@@ -34,5 +48,7 @@
         <a id="add-write" href="./wrtie.html">글 작성</a>
       </footer>
     </div>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

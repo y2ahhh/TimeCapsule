@@ -63,11 +63,11 @@ body {
   font-size: clamp(12px, 0.8vw, 16px);
 }
 
-#title > input {
+.title {
   width: 90%;
 }
 
-#name > input {
+.name {
   width: 50%;
 }
 
@@ -110,11 +110,11 @@ body {
   position: relative;
 }
 
-/* button 사용하지 않고, link 연결 시 main.css - #add-write와 min-width 참고 */
 #upload-write {
   position: absolute;
   top: clamp(10px, 1.5vh, 25px);
   right: clamp(10px, 2vw, 30px);
   color: #6c5a72;
   cursor: pointer;
+  text-decoration: none;
 }
