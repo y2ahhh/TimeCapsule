@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeCapsule</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <div id="layout">
+      <!-- nav -->
+       <nav id="nav">
+        <p>TimeCapsule</p>
+
+        <div id="search-element">
+          <select id="search-option">
+            <option>제목</option>
+            <option>작성자</option>
+          </select>
+
+          <input id="calendar" type="date" />
+          <input id="search-input" placeholder="검색어를 입력하세요" maxlength="25"/>
+          <button id="search">검색</button>
+        </div>
+      </nav>
+
+      <!-- main -->
+      <main id="main">
+        <!-- 고정 -->
+        <div class="item-head">
+          <div class ="title">
+            <p>제목</p>
+          </div>
+          <div class ="name">
+            <p>작성자</p>
+          </div>
+          <div class ="lock">
+            <p>잠금</p>
+          </div>
+        </div>
+
+        <!-- 값 -->
+        <div id = "content"></div>
+      </main>
+
+      <!-- footer -->
+      <footer id="footer">
+        <a id="add-write" href="./wrtie.html">글 작성</a>
+      </footer>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

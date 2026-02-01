@@ -2,6 +2,7 @@ package com.crabsoup.timecapsule.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +25,10 @@ public class Letter {
 
     private String content;
 
+    @Column(name = "createdAt")
     private LocalDate createdAt;
 
+    @Column(name = "endDate")
     private LocalDate endDate;
 
     private boolean locked;
