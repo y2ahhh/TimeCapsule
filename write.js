@@ -4,6 +4,7 @@ const upload = document.querySelector("#upload-write");
 const title_input = document.querySelector(".title");
 const name_input = document.querySelector(".name");
 const write_input = document.querySelector("#write");
+const pw_input = document.querySelector("#pw");
 
 /* 이벤트 리스너 */
 // 작성하기
@@ -14,13 +15,14 @@ upload.addEventListener("click", () => {
     content: write_input.value,
     createdAt: Date.current(),
     endDate: Date.future(),
+    pw: pw_input.value,
   });
 });
 
 /* fetch API */
 // 데이터 저장
-const save = function (url, data) {
-  fetch(url, {
+const save = function (data) {
+  fetch("/api/letters", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -32,6 +34,7 @@ const save = function (url, data) {
       title_input.value = "";
       name_input.value = "";
       write_input.value = "";
+      pw_input.value = "";
 
       // 데이터 불러오기
       Main.load("/api/letters");

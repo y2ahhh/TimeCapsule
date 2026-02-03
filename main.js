@@ -1,4 +1,5 @@
 import * as Date from "./date.js";
+import * as View from "./view.js";
 const content = document.querySelector("#content");
 const search_btn = document.querySelector("#search");
 const select_option = document.querySelector("#search-option");
@@ -13,10 +14,14 @@ if (search_btn) {
   });
 }
 
+/* fetch API */
 // 데이터 불러오기
-export const load = function (url) {
-  fetch(url)
-    .then((response) => response.json())
+export const load = function () {
+  fetch("/api/letters/")
+    .then((response) => {
+      if(!response.ok) throw new Error("NOT OK");
+      return response.json();
+    })
     .then((json) => {
       // 화면 초기화
       clear();
@@ -39,11 +44,13 @@ export const load = function (url) {
     });
 };
 
-/* fetch API */
 // 데이터 검색하기
-const search = function (url, val, date) {
-  fetch(url)
-    .then((response) => response.json())
+const search = function (val, date) {
+  fetch("/api/letters")
+    .then((response) => {
+      if(!response.ok) throw new Error("NOT OK");
+      return response.json();
+    })
     .then((json) => {
       // 화면 초기화
       clear();
@@ -76,6 +83,21 @@ const search = function (url, val, date) {
     });
 };
 
+// 데이터 삭제하기
+const del = function (id) {
+  fetch(`/api/letters/${id}`, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      if(!response.ok) throw new Error("NOT OK");
+      alert("삭제되었습니다.");
+      load("/api/letters/");
+    })
+    .catch((error) => {
+      alert("삭제에 실패하였습니다.");
+    });
+};
+
 /* 함수 */
 // item(목록) 추가
 const add_item = function (data) {
@@ -98,6 +120,12 @@ const add_item = function (data) {
         </div>`;
 
   content.insertAdjacentHTML("beforeend", item);
+
+  // 각 item에 리스너 부여
+  const last_item = content.lastElementChild;
+  last_item.addEventListener("click", () => {
+    msg(data);
+  });
 };
 
 // 화면 초기화
@@ -119,6 +147,19 @@ const islock = function (data) {
   else return false;
 };
 
+// 메시지 입력
+const msg = function (data) {
+  const num = prompt("번호 입력(1. 열람 / 2. 삭제 / 3. 취소)");
+  if (num == "1") {
+    if (islock(data)) View.view(data.id); 
+    else alert("열람 기간이 아닙니다.");
+  } 
+  else if (num == "2") {
+    const pw = prompt("비밀번호 입력");
+    if (pw == data.pw) del(data.id); 
+    else alert("비밀번호가 일치하지 않습니다.");
+  }
+};
+
 /* 실행 */
-if(content)
-    load("/api/letters");
+if (content) load();
