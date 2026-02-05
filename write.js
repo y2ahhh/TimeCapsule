@@ -53,7 +53,6 @@ const save = function (data) {
 const check = function () {
   if (title_input.value != "" && name_input.value != "" &&  write_input.value != "" && pw_input.value != "") 
     return true;
-  
   alert("입력하지 않은 항목이 있습니다.");
   return false;
 };
