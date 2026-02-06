@@ -1,4 +1,3 @@
-import * as Main from "/main.js";
 import * as Date from "/date.js";
 const upload = document.querySelector("#upload-write");
 const title_input = document.querySelector(".title");
@@ -40,7 +39,6 @@ const save = function (data) {
       pw_input.value = "";
 
       // 데이터 불러오기
-      Main.load();
       window.location.href = "/main.html"; // main.html 이동
     })
     .catch((error) => {
@@ -51,8 +49,11 @@ const save = function (data) {
 /* 함수 */
 // input 값 비어있는지 검사
 const check = function () {
-  if (title_input.value != "" && name_input.value != "" &&  write_input.value != "" && pw_input.value != "") 
-    return true;
-  alert("입력하지 않은 항목이 있습니다.");
+  if (title_input.value != "" && name_input.value != "" &&  write_input.value != "" && pw_input.value != "") {
+    // 정규표현식을 통한 숫자 검사
+    if(/^\d+$/.test(pw_input.value)) return true;
+    else alert("비밀번호는 숫자만 입력 가능합니다.");
+  }
+  else alert("입력하지 않은 항목이 있습니다.");
   return false;
 };

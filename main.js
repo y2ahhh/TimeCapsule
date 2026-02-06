@@ -1,5 +1,4 @@
 import * as Date from "/date.js";
-import * as View from "/view.js";
 const content = document.querySelector("#content");
 const search_btn = document.querySelector("#search");
 
@@ -143,9 +142,12 @@ const islock = function (data) {
 const msg = function (data) {
   const num = prompt("번호 입력(1. 열람 / 2. 삭제 / 3. 취소)");
   if (num == "1") {
-    if (islock(data)) View.view(data.id);
+    if (islock(data)){
+      window.location.href = `/view.html?id=${data.id}`;
+    } 
     else alert("열람 기간이 아닙니다.");
-  } else if (num == "2") {
+  } 
+  else if (num == "2") {
     const pw = prompt("비밀번호 입력");
     del(data.id, pw);
   }
