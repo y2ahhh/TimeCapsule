@@ -1,4 +1,3 @@
-import * as Date from "/date.js";
 const upload = document.querySelector("#upload-write");
 const title_input = document.querySelector(".title");
 const name_input = document.querySelector(".name");
@@ -13,8 +12,6 @@ upload.addEventListener("click", (event) => {
       title: title_input.value,
       name: name_input.value,
       content: write_input.value,
-      createdAt: Date.current(),
-      endDate: Date.future(),
       pw: pw_input.value,
     });
   }
